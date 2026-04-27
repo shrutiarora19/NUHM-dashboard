@@ -28,23 +28,6 @@ def extract_table_from_pdf(file):
 if uploaded_file:
 
     df = extract_table_from_pdf(uploaded_file)
-def clean_dataframe(df):
-    df = df.fillna("")
-
-    # Remove unwanted rows
-    df = df[~df[0].str.contains("High Focus|NATIONAL|Status", na=False)]
-
-    # Find header row
-    header_index = df[df[0].str.contains("SL No", na=False)].index
-
-    if len(header_index) > 0:
-        header_row = header_index[0]
-        df.columns = df.iloc[header_row]
-        df = df[header_row + 1:]
-
-    df = df.reset_index(drop=True)
-
-    return df
     st.write("Raw Extracted Data Preview:")
     st.dataframe(df.head())
 
