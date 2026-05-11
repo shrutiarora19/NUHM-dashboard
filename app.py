@@ -82,6 +82,7 @@ def extract_kpis(text):
 if uploaded_file:
 
     text = extract_text_from_pdf(uploaded_file)
+    kpis = extract_kpis(text)
 
     # Extract KPIs
     kpis = extract_kpis(text)
