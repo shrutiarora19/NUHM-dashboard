@@ -180,7 +180,7 @@ service_df = pd.DataFrame({
         "Coverage": [58, 73, 73, 73]
     })
 
-    fig2 = px.bar(
+fig2 = px.bar(
         service_df,
         x="Coverage",
         y="Service",
