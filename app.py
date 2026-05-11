@@ -159,18 +159,18 @@ st.plotly_chart(fig, use_container_width=True)
     # -----------------------------
     # TABLE
     # -----------------------------
-    st.subheader("Infrastructure Table")
+st.subheader("Infrastructure Table")
 
-    st.dataframe(sample_df, use_container_width=True)
+st.dataframe(sample_df, use_container_width=True)
 
-    st.divider()
+st.divider()
 
     # -----------------------------
     # SERVICE DELIVERY
     # -----------------------------
-    st.subheader("Service Delivery")
+st.subheader("Service Delivery")
 
-    service_df = pd.DataFrame({
+service_df = pd.DataFrame({
         "Service": [
             "Eye Care",
             "ENT Care",
@@ -188,6 +188,6 @@ st.plotly_chart(fig, use_container_width=True)
         height=400
     )
 
-    st.plotly_chart(fig2, use_container_width=True)
+st.plotly_chart(fig2, use_container_width=True)
 
-    st.success("Dashboard generated successfully")
+st.success("Dashboard generated successfully")
