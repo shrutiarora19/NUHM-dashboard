@@ -118,14 +118,14 @@ selected_state = st.selectbox(
 st.title(f"{selected_state} Health Dashboard")
 st.header("State Overview")
 
-    col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3, col4 = st.columns(4)
 
-    col1.metric("Total Population", kpis["Total Population"])
-    col2.metric("Urban Population", kpis["Urban Population"])
-    col3.metric("Cities Covered", kpis["Cities Covered"])
-    col4.metric("Slum Population", kpis["Slum Population"])
+col1.metric("Total Population", kpis["Total Population"])
+col2.metric("Urban Population", kpis["Urban Population"])
+col3.metric("Cities Covered", kpis["Cities Covered"])
+col4.metric("Slum Population", kpis["Slum Population"])
 
-    st.divider()
+st.divider()
 
     # -----------------------------
     # SAMPLE DASHBOARD DATA
