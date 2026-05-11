@@ -13,7 +13,30 @@ uploaded_file = st.file_uploader("Upload NHM PDF", type=["pdf"])
 # -----------------------------
 # EXTRACT TEXT FROM PDF
 # -----------------------------
-def extract_text_from_pdf(file):
+def extract_kpis(text):
+
+    kpis = {}
+
+    # Clean text
+    clean_text = text.replace("\n", " ")
+
+    patterns = {
+        "Total Population": r"Total Population.*?([\d]+\.[\d]+)",
+        "Urban Population": r"Urban Population.*?([\d]+\.[\d]+)",
+        "Cities Covered": r"Cities covered.*?(\d+)",
+        "Slum Population": r"Slum.*?population.*?([\d]+\.[\d]+)"
+    }
+
+    for key, pattern in patterns.items():
+
+        match = re.search(pattern, clean_text, re.IGNORECASE)
+
+        if match:
+            kpis[key] = match.group(1)
+        else:
+            kpis[key] = "Not Found"
+
+    return kpis
 
     full_text = ""
 
@@ -62,7 +85,37 @@ if uploaded_file:
 
     # Extract KPIs
     kpis = extract_kpis(text)
+states = [
 
+    "Bihar",
+
+    "Chhattisgarh",
+
+    "Gujarat",
+
+    "Jharkhand",
+
+    "Madhya Pradesh",
+
+    "Odisha",
+
+    "Rajasthan",
+
+    "Uttar Pradesh",
+
+    "Uttarakhand"
+
+]
+
+selected_state = st.selectbox(
+
+    "Select State",
+
+    states
+
+)
+
+st.title(f"{selected_state} Health Dashboard")
     st.header("State Overview")
 
     col1, col2, col3, col4 = st.columns(4)
