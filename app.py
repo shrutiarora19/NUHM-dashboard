@@ -127,10 +127,10 @@ col4.metric("Slum Population", kpis["Slum Population"])
 
 st.divider()
 
-    # -----------------------------
-    # SAMPLE DASHBOARD DATA
-    # -----------------------------
-    sample_df = pd.DataFrame({
+# -----------------------------
+# SAMPLE DASHBOARD DATA
+# -----------------------------
+sample_df = pd.DataFrame({
         "Category": [
             "UPHC-AAM",
             "UCHC",
@@ -144,9 +144,9 @@ st.divider()
     # -----------------------------
     # CHARTS
     # -----------------------------
-    st.subheader("Health Infrastructure")
+st.subheader("Health Infrastructure")
 
-    fig = px.bar(
+fig = px.bar(
         sample_df,
         x="Category",
         y=["Required", "Functional"],
@@ -154,7 +154,7 @@ st.divider()
         height=500
     )
 
-    st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, use_container_width=True)
 
     # -----------------------------
     # TABLE
