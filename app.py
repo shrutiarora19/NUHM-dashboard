@@ -116,7 +116,7 @@ selected_state = st.selectbox(
 )
 
 st.title(f"{selected_state} Health Dashboard")
-    st.header("State Overview")
+st.header("State Overview")
 
     col1, col2, col3, col4 = st.columns(4)
 
